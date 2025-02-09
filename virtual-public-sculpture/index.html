@@ -14,24 +14,7 @@
             init: function () {
                 this.el.addEventListener('click', e => {
                     // assisted by ChatGPT after several failed google searches
-                    const mesh = this.el.getObject3D('mesh');
-                    if (mesh) {
-                        mesh.traverse((node) => {
-                            if (node.isMesh) {
-                                node.material.transparent = true;
-
-                                node.el = this.el;
-                                node.el.setAttribute('animation', {
-                                    property: 'material.opacity',
-                                    to: 0,
-                                    dur: 1000,
-                                    easing: 'easeInOutQuad',
-                                })
-                            }
-                        })
-                    } else {
-                        console.log("Mesh not found!");
-                    }
+                    this.el.parentNode.removeChild(this.el);
                     // end assisted by ChatGPT
                 });
             }
