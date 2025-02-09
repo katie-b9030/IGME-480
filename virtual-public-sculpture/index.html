@@ -19,15 +19,19 @@
                         mesh.traverse((node) => {
                             if (node.isMesh) {
                                 node.material.transparent = true;
+
+                                mode.el = this.el;
+                                node.el.setAttribute('animation', {
+                                    property: 'material.opacity',
+                                    to: 0,
+                                    dur: 1000,
+                                    easing: 'easeInOutQuad',
+                                })
                             }
                         })
+                    } else {
+                        console.log("Mesh not found!");
                     }
-                    this.el.setAttribute('animation', {
-                        property: 'material.opacity',
-                        to: 0,
-                        dur: 1000,
-                        easing: 'easeInOutQuad',
-                    })
                     // end assisted by ChatGPT
                 });
             }
