@@ -14,7 +14,7 @@
             init: function () {
                 this.el.addEventListener('click', e => {
                     // assisted by ChatGPT after several failed google searches
-                    this.el.parentNode.removeChild(this.el);
+                    this.el.removeChild(document.querySelector('a-entity'));
                     // end assisted by ChatGPT
                 });
             }
@@ -25,12 +25,11 @@
 <body>
     <p style="text-align:center;font-weight:bold;font-size:2rem;background:#FFFFFF">Click the model!</p>
     <a-scene vr-mode-ui='enabled: false' arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false'
-        renderer='antialias: true; alpha: true' device-orientation-permission-ui>
+        renderer='antialias: true; alpha: true' device-orientation-permission-ui clicker>
         <!-- modified by ChatGPT to try to handle issues with the model moving with the camera -->
-        <a-camera gps-camera='gpsMinDistance: 5' device-orientation-controls></a-camera>
+        <a-camera gps-camera='gpsMinDistance: 10' device-orientation-controls></a-camera>
         <a-entity position="0 0 0" scale="1 1 1" gps-entity-place="latitude: 43.08105; longitude: -77.68334"
-            gltf-model="https://katie-b9030.github.io/IGME-480/virtual-public-sculpture/model/scene.gltf"
-            clicker></a-entity>
+            gltf-model="https://katie-b9030.github.io/IGME-480/virtual-public-sculpture/model/scene.gltf"></a-entity>
     </a-scene>
 </body>
 
