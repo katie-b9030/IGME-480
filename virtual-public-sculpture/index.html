@@ -36,11 +36,14 @@
 </head>
 
 <body>
-    <a-scene vr-mode-ui='enabled: false' arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false'
-        renderer='antialias: true; alpha: true'>
+    <!--<a-scene vr-mode-ui='enabled: false' arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false'
+        renderer='antialias: true; alpha: true'>-->
+    <a-scene embedded arjs vr-mode-ui="enabled: false" raycaster cursor="rayOrigin: mouse"
+        renderer="antialias: true; alpha: true">
 
         <a-marker preset="hiro">
-            <a-entity position="0 0 0" scale="1 1 1" gltf-model="https://katie-b9030.github.io/IGME-480/virtual-public-sculpture/model/scene.gltf"
+            <a-entity position="0 0 0" scale="1 1 1"
+                gltf-model="https://katie-b9030.github.io/IGME-480/virtual-public-sculpture/model/scene.gltf"
                 clicker></a-entity>
         </a-marker>
 
