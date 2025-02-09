@@ -20,7 +20,7 @@
                             if (node.isMesh) {
                                 node.material.transparent = true;
 
-                                mode.el = this.el;
+                                node.el = this.el;
                                 node.el.setAttribute('animation', {
                                     property: 'material.opacity',
                                     to: 0,
