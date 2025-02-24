@@ -25,6 +25,7 @@ const loadPlaces = () => {
 
     const sphere = document.createElement("a-sphere");
     sphere.setAttribute("color", "blue");
+    sphere.setAttribute("radius", "1");
     entity.appendChild(sphere);
 
     const text = document.createElement("a-text");
