@@ -17,14 +17,13 @@ const loadPlaces = () => {
   const scene = document.querySelector("a-scene");
 
   places.forEach((place) => {
-    const entity = document.createElement("a-entity");
+    const entity = document.createElement("a-sphere");
 
     entity.setAttribute(
       "gps-entity-place",
       `latitude: ${place.latitude}; longitude: ${place.longitude}`
     );
-    entity.setAttribute("geometry", "primitive: sphere; radius: 1");
-    entity.setAttribute("material", "color: blue");
+    entity.setAttribute("color", "blue");
 
     const text = document.createElement("a-text");
     text.setAttribute("value", place.name);
