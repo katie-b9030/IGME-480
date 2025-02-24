@@ -17,19 +17,21 @@ const loadPlaces = () => {
   const scene = document.querySelector("a-scene");
 
   places.forEach((place) => {
-    const entity = document.createElement("a-sphere");
+    const sphere = document.createElement("a-sphere");
+    sphere.setAttribute("color", "blue");
 
+    const entity = document.createElement("a-entity");
     entity.setAttribute(
       "gps-entity-place",
       `latitude: ${place.latitude}; longitude: ${place.longitude}`
     );
-    entity.setAttribute("color", "blue");
 
     const text = document.createElement("a-text");
     text.setAttribute("value", place.name);
     text.setAttribute("align", "center");
     text.setAttribute("position", "0 2 0");
     entity.appendChild(text);
+    entity.appendChild(sphere);
 
     entity.addEventListener("click", () =>
       alert(`You clicked on: ${place.name}`)
