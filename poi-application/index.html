@@ -15,7 +15,8 @@
 </head>
 
 <body>
-    <a-scene embedded arjs raycaster>
+    <a-scene embedded arjs vr-mode-ui="enabled: false" raycaster cursor="rayOrigin: mouse"
+        renderer="antialias: true; alpha: true">
         <a-camera gps-camera="simulateLatitude: 43.154722; simulateLongitude: -77.609722;"></a-camera>
     </a-scene>
     <script src="script.js"></script>
