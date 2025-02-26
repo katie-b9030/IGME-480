@@ -23,7 +23,7 @@ const loadPlaces = () => {
       "gps-entity-place",
       `latitude: ${place.latitude}; longitude: ${place.longitude}`
     );
-    entity.setAttribute("geometry", "primitive: sphere; radius: 0.5");
+    entity.setAttribute("geometry", "primitive: sphere; radius: .5");
     entity.setAttribute("material", "color: blue");
 
     const text = document.createElement("a-text");
