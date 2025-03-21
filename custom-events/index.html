@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Interactive AR Exercise</title>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script src='https://raw.githack.com/AR-js-org/AR.js/3.4.5/aframe/build/aframe-ar.js'></script>
+</head>
+
+<body style="margin: 0; overflow: hidden;">
+    <a-scene embedded arjs raycaster vr-mode-ui="enabled: false" renderer="logarithmicDepthBuffer: true;">
+        <a-assets>
+            <!-- Audio element for playing sound -->
+            <audio id="myAudio" src="/IGME-480/custom-events/media/Eno_The_Secret_Place.mp3" type="audio/mpeg"
+                preload="auto" loop="true" crossorigin="anonymous"></audio>
+            <!-- Alternatively, you can add a video element if you prefer -->
+            <!-- <video id="myVideo" src="/IGME-480/custom-events/media/bigbuckbunny.mp4" type="video/mp4" preload="auto" loop="true" crossorigin="anonymous" style="display:none;"></video> -->
+        </a-assets>
+        <!-- Marker that triggers AR content -->
+        <a-marker preset="hiro">
+            <!-- 3D object for playing media (sound/video) -->
+            <a-entity id="mediaSphere" position="0 -1 0" geometry="primitive: sphere; radius: 0.5"
+                material="color: blue" class="clickable" sound="src: #myAudio; on: click"></a-entity>
+
+            <!-- 
+        optional video
+        <a-entity id="mediaSphere" position="0 -1 0" geometry="primitive: sphere; radius: 0.5" material="color: red" class="clickable">
+          <a-video class="clickable" src="#myVideo" width="16" height="9" position="0 0 -2"></a-video>
+        </a-entity>
+        -->
+
+        </a-marker>
+        <!-- camera with raycaster -->
+        <a-entity camera>
+            <a-entity cursor="fuse: false; rayOrigin: mouse" raycaster="objects: .clickable"></a-entity>
+        </a-entity>
+    </a-scene>
+
+
+    <script>
+        // Play audio when the sphere is clicked
+        document.querySelector('#mediaSphere').addEventListener('click', function () {
+            let audioElement = document.querySelector('#myAudio');
+            if (audioElement.paused) {
+                audioElement.play();
+            } else {
+                audioElement.pause();
+            }
+        });
+
+        /* For playing video instead, you could do:
+        document.querySelector('#mediaSphere').addEventListener('click', function () {
+          let videoElement = document.querySelector('#myVideo');
+          if (videoElement.paused) {
+            videoElement.style.display = "block"; // Show video element
+            videoElement.play();
+          } else {
+            videoElement.pause();
+            videoElement.style.display = "none"; // Hide video element after pausing
+          }
+        });
+        */
+    </script>
+</body>
+
+</html>
